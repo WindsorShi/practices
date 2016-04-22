@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>calculator</title>
+</head>
+<body>
+	<div>
+
+		<input type="text" id="num1">
+		<select name="operator" id="operator">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" id="num2">
+		<input type="button"  value="结果" id="result">
+	
+	</div>
+	<script text="text/script">
+		var r=document.getElementById('result');
+		r.onclick=function(){
+		var a=document.getElementById('num1').value;
+		var b=document.getElementById('num2').value;
+		var o=document.getElementById('operator').value;
+		a=parseFloat(a);
+		b=parseFloat(b);
+			if (o=='+') {
+				alert(a+b);
+			}else if(o=='-'){
+                 alert(a-b);
+			}else if(o=='*'){
+                 alert(a*b);
+			}else if(o==''){
+				alert(a/b);
+			}
+		}
+	</script>
+</body>
+</html>
