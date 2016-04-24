@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>selector</title>
+    <script type="text/javascript">
+    var arr = ["a", "x", "m", "b", "d", "m", "a", "k", "m", "p", "j", "a"];
+    var letter = []; //这个数组用来存放字母
+    var num = []; //这个数组用来存放字母出现次数
+    for (var i = 0; i < arr.length; i++) {
+        if (letter.indexOf(arr[i]) == -1) { //如果arr那个数组中的i位置上的字母没有出现在letter那个数组中，
+            // 那么在letter中该字母的index就会是-1，
+            //也就是说：没有出现，等于-1，为真，执行下面两行
+            letter.push(arr[i]); //把arr那个数组中的i位置上的字母存到letter中最后一个位置
+            num.push(1); //把1存到相应位置
+        } else { //字母出现过的情况
+            var j = letter.indexOf(arr[i]); //这里把字母在letter中的index赋给j
+            num[j]++; //把相应位置存的num加1    
+        }
+    }
+    var m = Math.max.apply(Math, num); //.apply的调用方式和Math.max这个可变参数函数配合得到数组num中的最大元素
+    var res = []; //该数组存放出现次数均为m的字母
+    for (var i = 0; i < num.length; i++) {
+        if (m == num[i]) {
+            var r = letter[i]; //相应最大值的位置对应的letter中的字母即为结果字母赋给‘r’
+            res.push(r);
+            arr.splice(r, 1, "");
+        }
+    } //这个for循环用来实现将出现次数最多的字母放入res数组
+    document.write("出现次数最多的元素有" + res.length + "个<br>" + "出现的次数均为：" + m + "次<br>");
+    for (var j = 0; j < res.length; j++) {
+        var position = []; //把输出位置结果存到一个数组
+        for (var i = 0; i < m; i++) { //循环m次
+            var n = arr.indexOf(res[j]); //把arr数组里边出现字母所在第一个位置赋值为n
+            position.push(n);
+            arr.splice(n, 1, ""); //把出现过的位置上的字母用空格代替
+        }
+        document.write("元素:" + res[j] + "<br>出现位置为：" + position.join(',') + "<br>");
+    } //这个for循环用来实现位置的输出
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>range</title>
+</head>
+
+<body>
+    <div> 
+            <input type="number" id="num">
+            <input type="submit" onclick="range(document.getElementById
+('num').value)">             
+    </div>
+    <p id="result"></p>
+    <script type="text/javascript">
+    function range(num) {
+        var a = num;
+        var result=document.getElementById('result');
+        switch (true) {
+            case a >= 90 && a <= 100:
+                result.innerHTML=1+"等生";
+                break;
+            case a >= 80 && a < 90:
+                  result.innerHTML=2+"等生";
+                break;
+            case a >= 70 && a < 80:
+                  result.innerHTML=3+"等生";
+                break;
+            case a >= 60 && a < 70:
+                  result.innerHTML=4+"等生";
+                break;
+            case a >= 50 && a < 60:
+                  result.innerHTML=5+"等生";
+                break;
+            case a >= 40 && a < 50:
+                  result.innerHTML=6+"等生";
+                break;
+            case a >= 30 && a < 40:
+                  result.innerHTML=7+"等生";
+                break;
+            case a >= 20 && a < 30:
+                  result.innerHTML=8+"等生";
+                break;
+            case a >= 10 && a < 20:
+                  result.innerHTML=9+"等生";
+                break;
+            case a >= 0 && a < 10:
+                  result.innerHTML=10+"等生";
+                break;
+             default: alert("errorinput");   
+        }
+    }
+    </script>
+</body>
+
+</html>
